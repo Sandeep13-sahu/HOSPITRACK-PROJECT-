@@ -1,0 +1,8 @@
+#!/bin/sh
+DIR="$(cd "$(dirname "$0")" && pwd)"
+if [ -f "$DIR/.mvn/apache-maven-3.9.6/bin/mvn" ]; then
+    chmod +x "$DIR/.mvn/apache-maven-3.9.6/bin/mvn"
+    exec "$DIR/.mvn/apache-maven-3.9.6/bin/mvn" "$@"
+else
+    exec mvn "$@"
+fi
